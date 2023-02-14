@@ -14,7 +14,7 @@ import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "TB_CLIENTE")
-public class Cliente implements Serializable {
+public class ClienteModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -38,10 +38,10 @@ public class Cliente implements Serializable {
 	private int telefone;
 	
 	//Construtores
-	public Cliente() {
+	public ClienteModel() {
 	}
 	
-	public Cliente(Long id, String nome, String email, String senha, int cpf, int telefone) {
+	public ClienteModel(Long id, String nome, String email, String senha, int cpf, int telefone) {
 		super();
 		this.id = id;
 		this.nome = nome;

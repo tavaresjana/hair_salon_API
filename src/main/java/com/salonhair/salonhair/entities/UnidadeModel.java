@@ -3,7 +3,8 @@ package com.salonhair.salonhair.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Unidade implements Serializable{
+public class UnidadeModel implements Serializable{
+	
 	
 	/**
 	 * 
@@ -16,11 +17,11 @@ public class Unidade implements Serializable{
 	private String cidade;
 	private String estado;
 	
-	public Unidade() {
+	public UnidadeModel() {
 		
 	}
 
-	public Unidade(Long id, String rua, Integer numero, String bairro, String cidade, String estado) {
+	public UnidadeModel(Long id, String rua, Integer numero, String bairro, String cidade, String estado) {
 		super();
 		this.id = id;
 		this.rua = rua;
@@ -78,7 +79,6 @@ public class Unidade implements Serializable{
 		this.estado = estado;
 	}
 	
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -92,9 +92,11 @@ public class Unidade implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Unidade other = (Unidade) obj;
+		UnidadeModel other = (UnidadeModel) obj;
 		return Objects.equals(id, other.id);
 	}
+
+
 
 	
 	

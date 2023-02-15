@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.salonhair.salonhair.entities.ClienteModel;
 import com.salonhair.salonhair.repositories.ClienteRepository;
 
+import jakarta.validation.Valid;
+
 @Service
 public class ClienteService {
 
@@ -21,6 +23,15 @@ public class ClienteService {
 
 	public Optional<ClienteModel> findById(Long id) {
 		return clienteRepository.findById(id);
+	}
+
+
+	public ClienteModel save(@Valid ClienteModel clienteModel) {
+		return clienteRepository.save(clienteModel);
+	}
+
+	public void delete(ClienteModel clienteModel) {
+		clienteRepository.delete(clienteModel);
 	}
 
 }

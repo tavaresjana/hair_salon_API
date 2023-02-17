@@ -21,17 +21,9 @@ public class ClienteService {
 		return clienteRepository.findAll();
 	}
 
-	public Optional<ClienteModel> findById(Long id) {
-		return clienteRepository.findById(id);
-	}
-
-
-	public ClienteModel save(@Valid ClienteModel clienteModel) {
-		return clienteRepository.save(clienteModel);
-	}
-
-	public void delete(ClienteModel clienteModel) {
-		clienteRepository.delete(clienteModel);
+	public ClienteModel findById(Long id) {
+		Optional<ClienteModel> obj = clienteRepository.findById(id);
+		return obj.get();
 	}
 
 }

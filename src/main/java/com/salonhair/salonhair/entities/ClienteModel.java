@@ -31,7 +31,7 @@ public class ClienteModel implements Serializable {
 	@NotNull
 	private String senha;
 	
-	@CPF
+	//@CPF
 	private int cpf;
 	
 	

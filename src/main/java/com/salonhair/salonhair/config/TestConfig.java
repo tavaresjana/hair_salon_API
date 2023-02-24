@@ -8,8 +8,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.salonhair.salonhair.entities.ClienteModel;
+import com.salonhair.salonhair.entities.ServicoModel;
 import com.salonhair.salonhair.entities.UnidadeModel;
 import com.salonhair.salonhair.repositories.ClienteRepository;
+import com.salonhair.salonhair.repositories.ServicoRepository;
 import com.salonhair.salonhair.repositories.UnidadeRepository;
 
 @Configuration
@@ -21,6 +23,9 @@ public class TestConfig implements CommandLineRunner  {
 	
 	@Autowired
 	private ClienteRepository clienteRepository;
+	
+	@Autowired
+	private ServicoRepository servicoRepository;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -36,6 +41,17 @@ public class TestConfig implements CommandLineRunner  {
 		
 		clienteRepository.saveAll(Arrays.asList(c1));
 		clienteRepository.saveAll(Arrays.asList(c2));
+		
+		//testes referente a entidade Serviço
+		ServicoModel s1 = new ServicoModel(null, "Escova", 70.00);
+		ServicoModel s2 = new ServicoModel(null, "Hidratação", 80.00);
+		ServicoModel s3 = new ServicoModel(null, "Corte", 50.00);
+		ServicoModel s4 = new ServicoModel(null, "Coloração", 120.00);
+		
+		servicoRepository.saveAll(Arrays.asList(s1));
+		servicoRepository.saveAll(Arrays.asList(s2));
+		servicoRepository.saveAll(Arrays.asList(s3));
+		servicoRepository.saveAll(Arrays.asList(s4));
 	}
 
 }

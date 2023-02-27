@@ -26,6 +26,9 @@ public class ProfissionalService {
 		return obj.get();
 	}
 	
+	public ProfissionalModel insert(ProfissionalModel obj) {
+		return profissionalRepository.save(obj);
+	}
 	
 
 }

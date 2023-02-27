@@ -28,4 +28,16 @@ public class ServicoService {
 		return servicoRepository.save(obj);
 	}
 
+	public ServicoModel update(Long id, ServicoModel obj) {
+		ServicoModel entity = servicoRepository.getReferenceById(id);
+		updateData(entity, obj);
+		return servicoRepository.save(entity);
+	}
+
+	private void updateData(ServicoModel entity, ServicoModel obj) {
+		entity.setTipo(obj.getTipo());
+	}
+	
+	
+
 }

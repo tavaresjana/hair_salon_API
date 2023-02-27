@@ -31,8 +31,8 @@ public class ClienteModel implements Serializable {
 	@NotNull
 	private String senha;
 	
-	//@CPF
-	private int cpf;
+	@CPF
+	private String cpf;
 	
 	
 	private int telefone;
@@ -41,7 +41,7 @@ public class ClienteModel implements Serializable {
 	public ClienteModel() {
 	}
 	
-	public ClienteModel(Long id, String nome, String email, String senha, int cpf, int telefone) {
+	public ClienteModel(Long id, String nome, String email, String senha, String cpf, int telefone) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -84,11 +84,11 @@ public class ClienteModel implements Serializable {
 		this.senha = senha;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

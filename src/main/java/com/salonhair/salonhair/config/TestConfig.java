@@ -43,9 +43,9 @@ public class TestConfig implements CommandLineRunner  {
 		unidadeRepository.saveAll(Arrays.asList(u2));
 		
 		//testes referente a entidade cliente
-		ClienteModel c1 = new ClienteModel(null, "Jana Java", "janajava@email.com", "senha123", 445335000, 91111111);
-		ClienteModel c2 = new ClienteModel(null, "Ana Nodejs", "ananodejs@email.com", "senha123", 445335001, 91111112);
-		
+		ClienteModel c1 = new ClienteModel(null, "Jana Java", "janajava@email.com", "senha123", "384.883.170-85", 91111111);
+		ClienteModel c2 = new ClienteModel(null, "Ana Nodejs", "ananodejs@email.com", "senha123", "380.985.080-21", 91111112);
+				
 		clienteRepository.saveAll(Arrays.asList(c1));
 		clienteRepository.saveAll(Arrays.asList(c2));
 		

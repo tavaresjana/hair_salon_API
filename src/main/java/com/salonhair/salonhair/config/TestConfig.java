@@ -8,9 +8,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.salonhair.salonhair.entities.ClienteModel;
+import com.salonhair.salonhair.entities.ProfissionalModel;
 import com.salonhair.salonhair.entities.ServicoModel;
 import com.salonhair.salonhair.entities.UnidadeModel;
 import com.salonhair.salonhair.repositories.ClienteRepository;
+import com.salonhair.salonhair.repositories.ProfissionalRepository;
 import com.salonhair.salonhair.repositories.ServicoRepository;
 import com.salonhair.salonhair.repositories.UnidadeRepository;
 
@@ -27,8 +29,13 @@ public class TestConfig implements CommandLineRunner  {
 	@Autowired
 	private ServicoRepository servicoRepository;
 	
+	@Autowired
+	private ProfissionalRepository profissionalRepository;
+	
 	@Override
 	public void run(String... args) throws Exception {
+		
+		//testes referente a entidade unidade
 		UnidadeModel u1 = new UnidadeModel(null,"Guape",23,"Serodio","Guarulhos","Sp");
 		UnidadeModel u2 = new UnidadeModel(null,"Uva",100,"Vila dos uvas","Uvanópolis","Sp");
 		
@@ -52,6 +59,18 @@ public class TestConfig implements CommandLineRunner  {
 		servicoRepository.saveAll(Arrays.asList(s2));
 		servicoRepository.saveAll(Arrays.asList(s3));
 		servicoRepository.saveAll(Arrays.asList(s4));
+		
+		//testes referente a entidade Profissional
+		
+				ProfissionalModel p1 = new ProfissionalModel(null, 1234, "João Carlo","Barba e Cabelo");
+				ProfissionalModel p2 = new ProfissionalModel(null, 4562, "Otávio","Corte feminino e sobrancelha");
+				ProfissionalModel p3 = new ProfissionalModel(null, 8546, "Sandro","Corte masculino e feminino");
+				ProfissionalModel p4 = new ProfissionalModel(null, 4246, "Juarez","Corte masculino e feminino");
+				
+				profissionalRepository.saveAll(Arrays.asList(p1));
+				profissionalRepository.saveAll(Arrays.asList(p2));
+				profissionalRepository.saveAll(Arrays.asList(p3));
+				profissionalRepository.saveAll(Arrays.asList(p4));
 	}
 
 }

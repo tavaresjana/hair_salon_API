@@ -27,5 +27,9 @@ public class UnidadeService {
 	}
 	
 	
+	public UnidadeModel insert(UnidadeModel obj) {
+		return unidadeRepository.save(obj);
+	}
+	
 
 }

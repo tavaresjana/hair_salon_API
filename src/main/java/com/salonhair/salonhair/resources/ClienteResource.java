@@ -17,6 +17,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.salonhair.salonhair.entities.ClienteModel;
 import com.salonhair.salonhair.services.ClienteService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/clientes")
 public class ClienteResource {
@@ -38,7 +40,7 @@ public class ClienteResource {
 	}
 	
 	@PostMapping
-	 public ResponseEntity<ClienteModel> insert(@RequestBody ClienteModel obj){
+	 public ResponseEntity<ClienteModel> insert(@RequestBody @Valid ClienteModel obj){
 	 obj = clienteService.insert(obj);
 	 URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 			 .buildAndExpand(obj.getId()).toUri();

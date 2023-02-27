@@ -29,7 +29,7 @@ public class ProfissionalResource {
 		 return ResponseEntity.ok().body(list);
 	}
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<UnidadeModel> findById(@PathVariable("id") Long id){
+	public ResponseEntity<ProfissionalModel> findById(@PathVariable("id") Long id){
 		
 		ProfissionalModel obj = profissionalService.findById(id);
 		

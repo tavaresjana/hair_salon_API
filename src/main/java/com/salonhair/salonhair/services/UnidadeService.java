@@ -31,5 +31,17 @@ public class UnidadeService {
 		return unidadeRepository.save(obj);
 	}
 	
+	public UnidadeModel update(Long id, UnidadeModel obj) {
+		UnidadeModel entity = unidadeRepository.getReferenceById(id);
+		updateData(entity,obj);
+		return unidadeRepository.save(entity);
+	}
+	public void updateData(UnidadeModel entity, UnidadeModel obj) {
+		entity.setRua(obj.getRua());
+		entity.setNumero(obj.getNumero());
+		entity.setBairro(obj.getBairro());
+		entity.setCidade(obj.getCidade());
+		entity.setEstado(obj.getEstado());
+	}
 
 }

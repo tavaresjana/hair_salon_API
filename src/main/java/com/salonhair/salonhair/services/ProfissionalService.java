@@ -30,5 +30,17 @@ public class ProfissionalService {
 		return profissionalRepository.save(obj);
 	}
 	
+	public ProfissionalModel update(Long id, ProfissionalModel obj) {
+		ProfissionalModel entity = profissionalRepository.getReferenceById(id);
+		updateData(entity,obj);
+		return profissionalRepository.save(entity);
+	}
+	
+	public void updateData(ProfissionalModel entity,ProfissionalModel obj) {
+		entity.setMatricula(obj.getMatricula());
+		entity.setNome(obj.getNome());
+		entity.setEspecialidade(obj.getEspecialidade());
+		
+	}
 
 }

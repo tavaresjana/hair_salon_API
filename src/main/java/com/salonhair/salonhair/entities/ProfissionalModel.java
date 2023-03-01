@@ -33,18 +33,23 @@ public class ProfissionalModel implements Serializable{
 	@JoinColumn(name = "profissional_id")
 	private ServicoModel servico;
 	
+	@ManyToOne
+	@JoinColumn(name = "unidade_id")
+	private UnidadeModel unidade;
+	
 	
 	public ProfissionalModel() {
 		
 	}
 	
-	public ProfissionalModel(Long id, Integer matricula, String nome, String especialidade, ServicoModel servico) {
+	public ProfissionalModel(Long id, Integer matricula, String nome, String especialidade, ServicoModel servico, UnidadeModel unidade) {
 		super();
 		this.id = id;
 		this.matricula = matricula;
 		this.nome = nome;
 		this.especialidade = especialidade;
 		this.servico = servico;
+		this.unidade = unidade;
 	}
 
 	public Long getId() {
@@ -86,6 +91,15 @@ public class ProfissionalModel implements Serializable{
 
 	public void setServico(ServicoModel servico) {
 		this.servico = servico;
+	}
+	
+
+	public UnidadeModel getUnidade() {
+		return unidade;
+	}
+
+	public void setUnidade(UnidadeModel unidade) {
+		this.unidade = unidade;
 	}
 
 	@Override

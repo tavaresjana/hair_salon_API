@@ -62,10 +62,10 @@ public class TestConfig implements CommandLineRunner  {
 		
 		//testes referente a entidade Profissional
 		
-				ProfissionalModel p1 = new ProfissionalModel(null, 1234, "João Carlo","Barba e Cabelo", s3);
-				ProfissionalModel p2 = new ProfissionalModel(null, 4562, "Otávio","Corte feminino e sobrancelha", s3);
-				ProfissionalModel p3 = new ProfissionalModel(null, 8546, "Sandro","Corte masculino e feminino", s4);
-				ProfissionalModel p4 = new ProfissionalModel(null, 4246, "Juarez","Corte masculino e feminino", s1);
+				ProfissionalModel p1 = new ProfissionalModel(null, 1234, "João Carlo","Barba e Cabelo", s3, u1);
+				ProfissionalModel p2 = new ProfissionalModel(null, 4562, "Otávio","Corte feminino e sobrancelha", s3, u2);
+				ProfissionalModel p3 = new ProfissionalModel(null, 8546, "Sandro","Corte masculino e feminino", s4, u1);
+				ProfissionalModel p4 = new ProfissionalModel(null, 4246, "Juarez","Corte masculino e feminino", s1, u2);
 				
 				profissionalRepository.saveAll(Arrays.asList(p1));
 				profissionalRepository.saveAll(Arrays.asList(p2));

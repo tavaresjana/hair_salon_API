@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 
@@ -27,17 +29,22 @@ public class ProfissionalModel implements Serializable{
 	private String nome;
 	private String especialidade;
 	
-
+	@ManyToOne
+	@JoinColumn(name = "profissional_id")
+	private ServicoModel servico;
+	
+	
 	public ProfissionalModel() {
 		
 	}
 	
-	public ProfissionalModel(Long id, Integer matricula, String nome, String especialidade) {
+	public ProfissionalModel(Long id, Integer matricula, String nome, String especialidade, ServicoModel servico) {
 		super();
 		this.id = id;
 		this.matricula = matricula;
 		this.nome = nome;
 		this.especialidade = especialidade;
+		this.servico = servico;
 	}
 
 	public Long getId() {
@@ -70,6 +77,15 @@ public class ProfissionalModel implements Serializable{
 
 	public void setEspecialidade(String especialidade) {
 		this.especialidade = especialidade;
+	}
+	
+
+	public ServicoModel getServico() {
+		return servico;
+	}
+
+	public void setServico(ServicoModel servico) {
+		this.servico = servico;
 	}
 
 	@Override

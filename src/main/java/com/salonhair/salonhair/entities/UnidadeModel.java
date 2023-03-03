@@ -2,8 +2,11 @@ package com.salonhair.salonhair.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -11,12 +14,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "TB_UNIDADE")
+@Table(name = "tb_unidade")
 public class UnidadeModel implements Serializable{
 	
 	
@@ -35,8 +41,14 @@ public class UnidadeModel implements Serializable{
 	private String estado;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "unidade")
+	@OneToMany(mappedBy = "unidade", targetEntity = ProfissionalModel.class)
 	private List<ProfissionalModel> profissional = new ArrayList<>();
+	
+	@ManyToMany
+	@JoinTable(name = "tb_unidade_servico",
+	joinColumns = @JoinColumn(name ="unidade_id"), 
+	inverseJoinColumns = @JoinColumn(name = "servico_id"))
+	private Set<ServicoModel> servicoModel = new HashSet<>();
 	
 	public UnidadeModel() {
 		
@@ -98,6 +110,10 @@ public class UnidadeModel implements Serializable{
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+	
+	public Set<ServicoModel> getServicoModel() {
+		return servicoModel;
 	}
 	
 	@Override

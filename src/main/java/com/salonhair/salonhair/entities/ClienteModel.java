@@ -13,7 +13,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "TB_CLIENTE")
+@Table(name = "tb_cliente")
 public class ClienteModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

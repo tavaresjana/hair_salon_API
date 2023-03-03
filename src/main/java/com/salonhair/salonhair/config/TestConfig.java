@@ -72,6 +72,17 @@ public class TestConfig implements CommandLineRunner  {
 				profissionalRepository.saveAll(Arrays.asList(p3));
 				profissionalRepository.saveAll(Arrays.asList(p4));
 				
+				u1.getServicoModel().add(s4);
+				u1.getServicoModel().add(s2);
+				u2.getServicoModel().add(s3);
+				u2.getServicoModel().add(s1);
+				
+				
+				
+				unidadeRepository.saveAll(Arrays.asList(u1));
+				unidadeRepository.saveAll(Arrays.asList(u2));
+				
+				
 	}
 
 }

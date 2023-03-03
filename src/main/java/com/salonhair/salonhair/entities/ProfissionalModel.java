@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "TB_PROFISSIONAL")
+@Table(name = "tb_profissional")
 public class ProfissionalModel implements Serializable{
 	
 	

@@ -2,6 +2,7 @@ package com.salonhair.salonhair.resources;
 
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.salonhair.salonhair.dto.ServicoDTO;
 import com.salonhair.salonhair.entities.ServicoModel;
 import com.salonhair.salonhair.services.ServicoService;
 
@@ -25,9 +27,10 @@ public class ServicoResource {
 	private ServicoService servicoService;
 
 	@GetMapping
-	public ResponseEntity<List<ServicoModel>> findAll(){
+	public ResponseEntity<List<ServicoDTO>> findAll(){
 		List<ServicoModel> list = servicoService.findAll();
-		return ResponseEntity.ok(list);
+		List<ServicoDTO> listDto = list.stream().map(x -> new ServicoDTO(x)).collect(Collectors.toList());
+		return ResponseEntity.ok(listDto);
 	}
 	
 	@GetMapping(value = "/{id}")

@@ -4,12 +4,14 @@ import java.util.Date;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_agendamento")
 public class AgendamentoModel {
 	
+	@Id
 	private ClienteModel CPF;
 	private Date time;
 	private UnidadeModel unidade;
